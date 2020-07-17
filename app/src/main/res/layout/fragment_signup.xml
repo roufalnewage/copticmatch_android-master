@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.smb.copticmatch.data.api.Status" />
+
+        <import type="com.smb.copticmatch.data.api.Resource" />
+
+        <variable
+            name="searchResource"
+            type="Resource" />
+
+        <variable
+            name="callback"
+            type="com.smb.copticmatch.ui.RetryCallback" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Toolbar
+                android:id="@+id/relativeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgBack"
+                    style="@style/ActionBarBackButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/back" />
+
+            </Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:fillViewport="true"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/imgLogo"
+                    style="@style/ActionBarTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/sign_up1" />
+
+                <TextView
+                    android:id="@+id/view"
+                    style="@style/DescriptionTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/enter_your_details_to_continue" />
+
+                <TextView
+                    android:id="@+id/txtName"
+                    style="@style/LoginTextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="63dp"
+                    android:text="@string/name"
+                    android:textColor="@color/white" />
+
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edtFirstName"
+                    style="@style/CommonInputFieldStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/user_icon"
+                    android:hint="@string/name"
+                    android:imeActionLabel="@string/desc_first_name_input_text_field"
+                    android:inputType="text"
+                    android:maxLength="20"
+                    tools:text="@string/name" />
+
+                <TextView
+                    android:id="@+id/txtEmail"
+                    style="@style/LoginTextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:text="@string/email"
+                    android:textColor="@color/white" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edtEmail"
+                    style="@style/CommonInputFieldStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/email"
+                    android:hint="@string/email"
+                    android:inputType="textEmailAddress"
+                    android:maxLength="30"
+                    tools:text="@string/email" />
+
+                <TextView
+                    android:id="@+id/txtPwd"
+                    style="@style/LoginTextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:text="@string/password"
+                    android:textColor="@color/white" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edtPassword"
+                    style="@style/CommonInputFieldStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/password"
+
+                    android:hint="@string/password_with_eg"
+                    android:inputType="textPassword"
+                    android:maxLength="20" />
+
+                <TextView
+                    android:id="@+id/txtConfPwd"
+                    style="@style/LoginTextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:text="@string/confirm_password"
+                    android:textColor="@color/white" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edtConfirmPassword"
+                    style="@style/CommonInputFieldStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/password"
+                    android:hint="@string/confirm_password"
+                    android:inputType="textPassword"
+                    android:maxLength="20" />
+
+                <TextView
+                    android:id="@+id/txtValidation"
+                    style="@style/LoginTextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:textColor="@color/red"
+                    android:textSize="14sp"
+                    tools:text="Enter a valid email" />
+
+                <Button
+                    android:id="@+id/btContinue"
+                    style="@style/OrangeButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="8dp"
+                    android:enabled="@{searchResource.status != Status.LOADING}"
+                    android:text="@string/signup" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/LoginTextViewStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="35dp"
+                    android:gravity="center"
+                    android:text="@string/signing_agreeing"
+                    android:textColor="@color/white" />
+
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
+        <include
+            layout="@layout/loading_state"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:callback="@{() -> callback.retry()}"
+            app:resource="@{searchResource}" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

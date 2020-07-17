@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/tabs_nav_graph"
+    app:startDestination="@id/matches_home_fragment">
+
+    <fragment
+        android:id="@+id/matches_home_fragment"
+        android:name="com.smb.copticmatch.ui.matches.MatchesHomeFragment"
+        android:label="MatchesHomeFragment">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/matches_fragment"
+        android:name="com.smb.copticmatch.ui.matches.MatchesFragment"
+        android:label="MatchesHomeFragment">
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/chat_fragment"
+        android:name="com.smb.copticmatch.ui.chat.ChatFragment"
+        android:label="ChatFragment">
+
+    </fragment>
+
+
+</navigation>

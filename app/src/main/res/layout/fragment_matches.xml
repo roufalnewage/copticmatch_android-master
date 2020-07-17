@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+
+        <import type="com.smb.copticmatch.data.api.Status" />
+
+        <import type="com.smb.copticmatch.data.api.Resource" />
+
+        <variable
+            name="resultCount"
+            type="int" />
+
+
+        <variable
+            name="searchResource"
+            type="Resource" />
+
+        <variable
+            name="callback"
+            type="com.smb.copticmatch.ui.RetryCallback" />
+    </data>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        app:cardCornerRadius="5dp"
+        app:cardBackgroundColor="@color/white"
+        android:layout_margin="@dimen/normal_padding"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_height="match_parent">
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_chat"
+            android:layout_width="match_parent"
+            app:layoutManager="LinearLayoutManager"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:layout_height="match_parent"/>
+
+
+    </androidx.cardview.widget.CardView>
+</layout>

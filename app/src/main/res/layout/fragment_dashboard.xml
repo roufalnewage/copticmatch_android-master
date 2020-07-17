@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    >
+
+    <data>
+
+        <import type="com.smb.copticmatch.data.api.Status" />
+
+        <import type="com.smb.copticmatch.data.api.Resource" />
+
+        <variable
+            name="searchResource"
+            type="Resource" />
+
+        <variable
+            name="callback"
+            type="com.smb.copticmatch.ui.RetryCallback" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/btLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="13dp"
+                android:background="@drawable/shape_button_social_login"
+                android:drawableStart="@drawable/searchicon_home"
+                android:drawablePadding="13dp"
+                android:gravity="center|left"
+                android:paddingStart="25dp"
+                android:hint="@string/search_menu"
+                android:textColor="#8B8E94"
+                android:textSize="18sp"
+                android:fontFamily="@font/josefinsans_regular"
+                tools:ignore="RtlHardcoded,RtlSymmetry" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/containerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_below="@id/btLogin"
+            android:orientation="vertical"
+           >
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvCategories"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="@string/no_categories_found"
+                android:textColor="#000000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:itemCount="5"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                tools:listitem="@layout/item_category"/>
+
+            <TextView
+                android:id="@+id/btOrderDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="18dp"
+                android:layout_marginEnd="18dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/shape_green_current_order_txt"
+                android:drawableRight="@drawable/arow_current_order"
+                android:elevation="5dp"
+                android:visibility="gone"
+                android:fontFamily="@font/josefinsans_regular"
+                android:gravity="center|left"
+                android:padding="13dp"
+                android:paddingLeft="21dp"
+                android:shadowColor="@color/card_green"
+                android:text="@string/restaurant_accepted_order"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/rvCategories"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="RtlHardcoded,RtlSymmetry" />
+            <TextView
+                android:id="@+id/txtNoData"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:visibility="gone"
+                android:text="@string/no_categories_found"
+                android:textColor="#000000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <include
+                layout="@layout/loading_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:callback="@{() -> callback.retry()}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:resource="@{searchResource}" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </RelativeLayout>
+
+</layout>

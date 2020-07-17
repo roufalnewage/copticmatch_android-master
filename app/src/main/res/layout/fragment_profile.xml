@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.smb.copticmatch.data.api.Status" />
+
+        <import type="com.smb.copticmatch.data.api.Resource" />
+
+        <variable
+            name="searchResource"
+            type="Resource" />
+
+        <variable
+            name="callback"
+            type="com.smb.copticmatch.ui.RetryCallback" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white">
+
+
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtSocialReg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:drawablePadding="10dp"
+                tools:text="Continue as Roufal"
+                android:visibility="gone"
+                android:gravity="center|left"
+                android:textColor="@color/colorPrimaryDark"
+                android:drawableLeft="@drawable/ic_google"/>
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:fillViewport="true"
+            >
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent">
+                    <FrameLayout
+                        android:id="@+id/imageBack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:background="?selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:padding="5dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/txtHeader"
+                        app:layout_constraintStart_toStartOf="@+id/guideline121"
+                        app:layout_constraintTop_toTopOf="@+id/txtHeader">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:src="@drawable/arrow_back"
+                            app:layout_constraintVertical_bias="1.0" />
+                    </FrameLayout>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtHeader"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="9dp"
+                        android:layout_marginTop="23dp"
+                        android:drawablePadding="13dp"
+                        android:fontFamily="@font/josefinsans_bold"
+                        android:gravity="center|left"
+                        android:text="@string/profile"
+                        android:textColor="@color/cat_txt_color"
+                        android:textSize="23sp"
+                        app:layout_constraintEnd_toStartOf="@+id/guideline131"
+                        app:layout_constraintStart_toEndOf="@+id/imageBack"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="RtlHardcoded,RtlSymmetry" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp">
+
+
+                    <com.facebook.drawee.view.SimpleDraweeView
+                        android:id="@+id/imgeProfileImage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/shape_profile_background"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:placeholderImage="@drawable/profile_place_holder"
+                        android:scaleType="fitCenter"
+                        app:progressBarAutoRotateInterval="500"
+                        app:progressBarImage="@drawable/rotate_image_progress"
+                        app:roundAsCircle="true"/>
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="@+id/imgeProfileImage"
+                        app:layout_constraintEnd_toEndOf="@+id/imgeProfileImage"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="@+id/imgeProfileImage"
+                        app:layout_constraintTop_toTopOf="@+id/imgeProfileImage"
+                        app:layout_constraintVertical_bias="0.919"
+                        app:srcCompat="@drawable/upload_photo_profile" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/josefinsans_semibold"
+                    android:singleLine="true"
+                    android:textColor="@color/cat_txt_color"
+                    android:textSize="19sp"
+                    android:gravity="center"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline22"
+                    app:layout_constraintHorizontal_bias="0.17"
+                    app:layout_constraintStart_toEndOf="@+id/imgeProfile"
+                    app:layout_constraintTop_toTopOf="@+id/imgeProfile"
+                    android:text="Priya Kuruvila" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:fontFamily="@font/josefinsans_semibold"
+                    android:singleLine="true"
+                    android:gravity="center"
+                    android:textColor="@color/cat_txt_color"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline22"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/txtName"
+                    app:layout_constraintTop_toBottomOf="@+id/txtName"
+                    android:text="(282)684-6603" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtMail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/josefinsans_semibold"
+                    android:singleLine="true"
+                    android:textColor="@color/cat_txt_color"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline22"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/txtPhone"
+                    app:layout_constraintTop_toBottomOf="@+id/txtPhone"
+                    android:text="priya@mailinator.com" />
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edtFirstName"
+                    style="@style/ProfileFieldStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:imeActionLabel="@string/desc_first_name_input_text_field"
+                    android:inputType="text"
+                    android:maxLength="20"
+                    tools:text="Priya Kuruvila" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edtPhone"
+                    style="@style/ProfileFieldStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/mobile"
+                    android:inputType="phone"
+                    android:maxLength="30"
+                    tools:text="(282)684-6603" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edtEmail"
+                    style="@style/ProfileFieldStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLength="30"
+                    android:hint="@string/email"
+                    android:inputType="textEmailAddress"
+                    tools:text="priya@mailinator.com" />
+
+                <TextView
+                    android:id="@+id/txtValidation"
+                    style="@style/LoginTextViewStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:textColor="@color/red"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toBottomOf="@+id/edtConfirmPassword"
+                    tools:text="Enter a valid email" />
+
+
+                <Button
+                    android:id="@+id/btContinue"
+                    style="@style/OrangeButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="31dp"
+                    android:layout_marginBottom="8dp"
+                    android:enabled="@{searchResource.status != Status.LOADING}"
+                    android:text="@string/save" />
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
+        <include
+            layout="@layout/loading_state"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:callback="@{() -> callback.retry()}"
+            app:resource="@{searchResource}" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
