@@ -9,6 +9,7 @@
     <string name="submit">Submit</string>
     <string name="email">Email</string>
     <string name="name">Name</string>
+    <string name="confirm_password" translatable="false">Confirm Password</string>
 
     <string name="msg_name">Name : <b>%s</b></string>
     <string name="msg_email">Email : <b>%s</b></string>
@@ -18,11 +19,31 @@
 
     <string name="error_network_server">Server not responding. Try again in a few</string>
     <string name="error_network">Sorry, we couldn\'t connect to internet</string>
+    <string name="set_password">Set Password</string>
 
-
+    <string name="forgot_password" translatable="false">Forgot Password</string>
+    <string name="forgot_password_ask" translatable="false">Forgot Password?</string>
+    <string name="resend_code" translatable="false">Resend Code?</string>
+    <string name="verify">VERIFY</string>
+    <string name="otp_desc">Enter the verification code that was sent to your registered email address</string>
+    <string name="update">UPDATE</string>
+    <string name="welcome_description">Already Member? Login here</string>
+    <string name="don_t_have_an_account_sign_up">Don\'t have an account? Sign Up</string>
+    <string name="enter_your_rgistered_email_address">Enter your rgistered email address</string>
+    <string name="next">NEXT</string>
     <string name="chat">Chat</string>
     <string name="likes">Likes</string>
+    <string name="desc_first_name_input_text_field" translatable="false">First name input text field</string>
+    <string name="password_with_eg" translatable="false">Password (eg:Abcd@123)</string>
     <string name="discover">Discover</string>
     <string name="matches">Matches</string>
     <string name="profile">Profile</string>
+    <string name="otp_text" translatable="false">Enter your code we send to your email address.</string>
+    <string name="password_validation_msg" translatable="false">Password must be 6 characters with a combination of letters &amp; number</string>
+
+    <string name="enter_your_details_to_continue">Enter your details to continue</string>
+
+    <string name="signup">SIGNUP</string>
+    <string name="signing_agreeing">By Signing Up you are agreeing to our Termse of Use and Privacy Policy</string>
+    <string name="sign_up1">Sign Up</string>
 </resources>

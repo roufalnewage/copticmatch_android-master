@@ -8,7 +8,6 @@ package com.smb.copticmatch.ui.login
 
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.KeyEvent
@@ -24,7 +23,7 @@ import com.smb.copticmatch.databinding.FragmentLoginBinding
 import com.smb.copticmatch.di.Injectable
 import com.smb.copticmatch.ui.BaseFragment
 import com.smb.copticmatch.ui.RetryCallback
-import com.smb.copticmatch.utils.AppConstants
+import com.smb.copticmatch.ui.login.ForgotPasswordFragmentDirections.actionOtpVerification
 import com.smb.copticmatch.utils.CommonUtils
 import com.smb.copticmatch.utils.CommonUtils.hideKeyboard
 import com.smb.copticmatch.utils.RequestBodyUtil
@@ -59,21 +58,8 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(), Injectable {
         super.onActivityCreated(savedInstanceState)
         mViewModel = ViewModelProvider(requireActivity(), mViewModelFactory).get(LoginViewModel::class.java)
         setAction()
-        /*Deep Link data observing*/
-        setDeepLinkObserver()
-
     }
 
-    private fun setDeepLinkObserver() {
-        mViewModel.currentPageLiveData.removeObservers(this)
-        mViewModel.currentPageLiveData.observe(requireActivity(), Observer {
-            it?.let {
-
-                mViewModel.currentPageLiveData.value = null
-                navController().navigate(LoginFragmentDirections.actionOtpVerification(it.email, it.token))
-            }
-        })
-    }
 
     //setting user actions
     private fun setAction() {
@@ -154,8 +140,6 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(), Injectable {
                 mViewModel.saveLoginNull(RequestBodyUtil.getRequestBodyMap(HashMap()))
                 if (it.data != null && it.data.status) {
                     SessionUtils.saveSession(it.data.data, context)
-//                    startActivity(Intent(activity, DashBoardActivity::class.java))
-//                    requireActivity().finishAffinity()
                 } else {
                     if (!isNetworkConnected(it.status, it.message)) {
                         return@Observer
@@ -164,7 +148,6 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(), Injectable {
                         showSnackBar(it.data!!.message)
                     }
                 }
-
             }
         })
     }

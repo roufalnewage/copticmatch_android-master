@@ -51,14 +51,14 @@ class MatchesFragment : BaseFragment<FragmentMatchesBinding>() {
 
         mBinding.listChat.adapter = adapter
         val list = ArrayList<User>()
-        list .add(User("aaaa",1))
-        list .add(User("bbbb",1))
-        list .add(User("cccc",1))
-        list .add(User("dddd",1))
-        list .add(User("dddd",1))
-        list .add(User("dddd",1))
-        list .add(User("dddd",1))
-        list .add(User("dddd",1))
+        list .add(User("aaaa",1,"","","",""))
+        list .add(User("bbbb",1,"","","",""))
+        list .add(User("cccc",1,"","","",""))
+        list .add(User("dddd",1,"","","",""))
+        list .add(User("dddd",1,"","","",""))
+        list .add(User("dddd",1,"","","",""))
+        list .add(User("dddd",1,"","","",""))
+        list .add(User("dddd",1,"","","",""))
         adapter.submitList(list)
     }
 

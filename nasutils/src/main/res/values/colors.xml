@@ -3,6 +3,7 @@
     <color name="colorPrimary">#6E0C4D</color>
     <color name="colorPrimaryDark">#6E0C4D</color>
     <color name="colorAccent">#FE5D7A</color>
+    <color name="commonBackground">#F9F9F9</color>
 
     <color name="white">@android:color/white</color>
     <color name="black">@android:color/black</color>
@@ -13,5 +14,53 @@
 
     <color name="gray_dark">#FFD7D7D7</color>
     <color name="gray_light">#FFF5F5F5</color>
+
+    <!--INPUT FIELD COLORS-->
+    <color name="textInputBorderColor">#E8E8E8</color>
+
+    <!--SOCIAL LOGIN COLOR-->
+
+    <!--ERROR COLORS-->
+
+    <!--GRADIENT COLORS-->
+    <color name="grad_btn_start">#FB3A78</color>
+    <color name="grad_btn_end">#FF7A7B</color>
+    <color name="grad_app_start">#720C50</color>
+    <color name="grad_app_center">#6E0C4D</color>
+    <color name="grad_app_end">#10020B</color>
+
+    <!--SIGN UP COLORS-->
+    <color name="signUpLinkColor">#52A1DE</color>
+
+    <!--DASHBOARD COLORS-->
+
+    <!--COLORS-->
+    <color name="red">#FF5722</color>
+    <color name="gray_opacity_59pr">#884D4D4D</color>
+    <color name="gray_opacity_58pr">#804D4D4D</color>
+    <color name="card_blue">#5663FF</color>
+    <color name="bottom_nav_item_color">#6E7FAA</color>
+    <color name="gray">#E4E4E4</color>
+    <color name="card_green">#209518</color>
+    <color name="card_grey">#9E9E9E</color>
+    <color name="text_grey">#B7C1C8</color>
+    <color name="textInputTextColor">#2C3F4A</color>
+    <color name="textInputBackgroundColor">#44FFFFFF</color>
+
+    <color name="trans_white">#55FFFFFF</color>
+    <color name="trans_black">#55000000</color>
+    <color name="card_red">#EE1000</color>
+
+    <color name="black_op86">#0F181E</color>
+    <color name="black_op16">#990F181E</color>
+    <color name="transparent">#FFFFFFFF</color>
+    <color name="cat_txt_color">#0C1419</color>
+    <color name="time_txt_color">#626668</color>
+    <color name="price_txt_color">#E58900</color>
+    <color name="border_line_color">#EEEEEE</color>
+    <color name="grand_tot_color">#545454</color>
+    <color name="account_divider_color">#F1F1F1</color>
+    <color name="optins_txt_color">#BDC0C2</color>
+    <color name="optins_gray_txt_color">#BDC0C2</color>
 
 </resources>

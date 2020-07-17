@@ -27,8 +27,6 @@ import android.text.style.ForegroundColorSpan
 import androidx.core.content.ContextCompat
 import com.smb.copticmatch.databinding.FragmentOtpVerificationBinding
 import com.smb.copticmatch.utils.CommonUtils
-import kotlinx.android.synthetic.main.fragment_forgot_password.btSendEmail
-import kotlinx.android.synthetic.main.fragment_forgot_password.imgBack
 
 
 /**
@@ -79,7 +77,7 @@ class OtpVerificationFragment : BaseFragment<FragmentOtpVerificationBinding>(), 
         word.setSpan(ForegroundColorSpan(ContextCompat.getColor(context!!, R.color.colorPrimaryDark)),
                 0, word.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
 
-        mBinding.txtOtp.text = word
+       // mBinding.txtOtp.text = word
        /* val wordTwo = SpannableString("\t" + fromHtml("<b> $mEmail</b> "))
 
         wordTwo.setSpan(ForegroundColorSpan(ContextCompat.getColor(context!!, R.color.card_blue)),
@@ -192,45 +190,5 @@ class OtpVerificationFragment : BaseFragment<FragmentOtpVerificationBinding>(), 
         })
     }
 
-    //request to validate token
-    @SuppressLint("SetTextI18n")
-    fun validateToken(token: String) {
-        mBinding.callback = object : RetryCallback {
-            override fun retry() {
-                mViewModel.retryVerifyLinkToken()
-            }
-        }
-
-        setTokenObserver(token)
-        val map: HashMap<String, Any> = hashMapOf()
-        map["email_token"] = token
-        mViewModel.verifyLinkToken(RequestBodyUtil.getRequestBodyMap(map))
-    }
-
-    //observing validate token
-    private fun setTokenObserver(token: String) {
-        mViewModel.verifyLinkTokenRepositories.removeObservers(this)
-        mViewModel.verifyLinkTokenRepositories.observe(this, Observer {
-            mBinding.searchResource = it
-            if (it == null || it.status == Status.LOADING) {
-                return@Observer
-            } else {
-                this.arguments!!.clear()
-                mViewModel.verifyLinkTokenNull(RequestBodyUtil.getRequestBodyMap(HashMap()))
-                if (it.data != null && it.data.status) {
-                    navController().navigate(OtpVerificationFragmentDirections.actionResetPassword(it.data.data!!.email,token))
-                    showSnackBar(it.data.message)
-                } else {
-                    if (!isNetworkConnected(it.status, it.message)) {
-                        return@Observer
-                    } else {
-                        CommonUtils.hideKeyboard(mBinding.btSendEmail, context)
-                        showSnackBar(it.data!!.message)
-                    }
-                }
-
-            }
-        })
-    }
 
 }

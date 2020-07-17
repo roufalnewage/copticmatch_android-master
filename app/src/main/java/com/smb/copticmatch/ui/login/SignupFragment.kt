@@ -20,9 +20,9 @@ import com.smb.copticmatch.di.Injectable
 import com.smb.copticmatch.ui.BaseFragment
 import com.smb.copticmatch.ui.RetryCallback
 import com.smb.copticmatch.utils.AppConstants
+import com.smb.copticmatch.utils.CommonUtils
 import com.smb.copticmatch.utils.RequestBodyUtil
 import com.smb.copticmatch.utils.SessionUtils
-import kotlinx.android.synthetic.main.fragment_signup.*
 import javax.inject.Inject
 
 
@@ -52,17 +52,16 @@ class SignupFragment : BaseFragment<FragmentSignupBinding>(), Injectable {
         super.onActivityCreated(savedInstanceState)
         mViewModel = getViewModel(LoginViewModel::class.java)
         setAction()
-        setUpFirebase()
 
     }
 
     //setting user actions
     private fun setAction() {
 
-        mBinding.imgBack.setSafeOnClickListener {
+        mBinding.imgBack.setOnClickListener {
             requireActivity().onBackPressed()
         }
-        mBinding.btContinue.setSafeOnClickListener {
+        mBinding.btContinue.setOnClickListener {
             CommonUtils.hideKeyboard(mBinding.btContinue, context)
             signUp()
         }
@@ -82,29 +81,29 @@ class SignupFragment : BaseFragment<FragmentSignupBinding>(), Injectable {
                 mViewModel.retrysignUp()
             }
         }
-        if (!CommonUtils.isNameValid(requireContext(), mBinding.edtFirstName, "First Name", txtValidation)) {
+        if (!CommonUtils.isNameValid(requireContext(), mBinding.edtFirstName, "First Name", mBinding.txtValidation)) {
             if (TextUtils.isEmpty(mBinding.edtFirstName.text.toString())) {
-                txtValidation.text = "Enter  name"
+                mBinding.txtValidation.text = "Enter  name"
             } else {
-                txtValidation.text = "Enter valid name"
+                mBinding.txtValidation.text = "Enter valid name"
             }
             return
         }
 
-        if (!CommonUtils.isEmailValid(mBinding.edtEmail, requireContext(), txtValidation)) {
+        if (!CommonUtils.isEmailValid(mBinding.edtEmail, requireContext(), mBinding.txtValidation)) {
             if (TextUtils.isEmpty(mBinding.edtEmail.text.toString())) {
-                txtValidation.text = "Enter email"
+                mBinding.txtValidation.text = "Enter email"
             } else {
-                txtValidation.text = "Enter a valid email"
+                mBinding.txtValidation.text = "Enter a valid email"
             }
             return
         }
-        if (!CommonUtils.isValidPassword(requireContext(), mBinding.edtPassword, "Password", txtValidation)) {
-            txtValidation.text = getString(R.string.password_validation_msg)
+        if (!CommonUtils.isValidPassword(requireContext(), mBinding.edtPassword, "Password", mBinding.txtValidation)) {
+            mBinding.txtValidation.text = getString(R.string.password_validation_msg)
             return
         }
-        if (!CommonUtils.isValidPassword(requireContext(), mBinding.edtConfirmPassword, "Confirm Password", txtValidation)) {
-            txtValidation.text = "Enter confirm password"
+        if (!CommonUtils.isValidPassword(requireContext(), mBinding.edtConfirmPassword, "Confirm Password", mBinding.txtValidation)) {
+            mBinding.txtValidation.text = "Enter confirm password"
             return
         }
         if (!mBinding.edtPassword.text.toString().equals(mBinding.edtConfirmPassword.text.toString(), false)) {
@@ -122,7 +121,6 @@ class SignupFragment : BaseFragment<FragmentSignupBinding>(), Injectable {
         SessionUtils.getReferralCode()?.let {
             map["referal_code"] = it
         }
-        map["fcm_id"] = FCM_TOCKEN
 
         mViewModel.signUp(RequestBodyUtil.getRequestBodyMap(map))
 

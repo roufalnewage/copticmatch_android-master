@@ -72,7 +72,7 @@ class UMSRepository @Inject constructor(
                result.addSource(umsoDao.loadUsers(), Observer {
                         list->
 
-                        result.setValue(BaseResponse("",true,list))
+                        result.setValue(BaseResponse("",true,"",list))
                 })
 
                 return  result

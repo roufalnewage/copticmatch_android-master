@@ -149,18 +149,6 @@ class LoginViewModel
 
 
 
-    /*START UPDATE PROFILE*/
-
-
-    val updateProfileRepositories: LiveData<Resource<BaseResponse<User>>> = Transformations
-            .switchMap(_updateProfile) { signUp ->
-                if (signUp == null) {
-                    AbsentLiveData.create()
-                } else {
-                    repoRepository.updateProfile(mRequestBody)
-                }
-            }
-
 
     fun saveUpdateProfileNull(requestBody: RequestBody?) {
         mRequestBody = requestBody!!
@@ -318,16 +306,6 @@ class LoginViewModel
 
     /*END VERIFY OTP*/
 
-    /*START VERIFY LINK TOKEN*/
-
-    val verifyLinkTokenRepositories: LiveData<Resource<BaseResponse<User>>> = Transformations
-            .switchMap(_verifyLinkToken) { verifyLinkToken ->
-                if (verifyLinkToken == null) {
-                    AbsentLiveData.create()
-                } else {
-                    repoRepository.verifyLinkToken(mRequestBody)
-                }
-            }
 
 
     fun verifyLinkTokenNull(requestBody: RequestBody?) {

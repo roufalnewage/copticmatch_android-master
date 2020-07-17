@@ -121,6 +121,9 @@ dependencies {
     debugImplementation 'com.readystatesoftware.chuck:library:1.1.0'
     releaseImplementation 'com.readystatesoftware.chuck:library-no-op:1.1.0'
 
+    //pin view
+    implementation 'com.chaos.view:pinview:1.4.3'
+
 }
 
 

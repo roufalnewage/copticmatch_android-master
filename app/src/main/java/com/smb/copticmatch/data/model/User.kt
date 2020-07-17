@@ -17,6 +17,14 @@ import com.google.gson.annotations.SerializedName
 
         @NonNull
         @field:SerializedName("spec_id")
-        var id: Int = 0
+        var id: Int = 0,
+        @field:SerializedName("phone")
+        var phone:String="",
+        @field:SerializedName("status")
+        var status:String,
+        @field:SerializedName("profile_image")
+        var profileImage:String,
+        @field:SerializedName("email")
+        var email:String
 
 )

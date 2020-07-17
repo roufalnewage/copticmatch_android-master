@@ -18,8 +18,8 @@ import com.smb.copticmatch.databinding.FragmentResetPasswordBinding
 import com.smb.copticmatch.di.Injectable
 import com.smb.copticmatch.ui.BaseFragment
 import com.smb.copticmatch.ui.RetryCallback
+import com.smb.copticmatch.utils.CommonUtils
 import com.smb.copticmatch.utils.RequestBodyUtil
-import kotlinx.android.synthetic.main.fragment_reset_password.*
 import java.util.*
 import javax.inject.Inject
 import kotlin.concurrent.schedule
@@ -57,10 +57,10 @@ class ResetPasswordFragment : BaseFragment<FragmentResetPasswordBinding>(), Inje
     }
 
     private fun setAction() {
-        imgBack.setOnClickListener {
+        mBinding.imgBack.setOnClickListener {
             activity!!.onBackPressed()
         }
-        btSave.setOnClickListener {
+        mBinding.btSave.setOnClickListener {
             CommonUtils.hideKeyboard(mBinding.btSave, context)
             resetPassword()
         }
